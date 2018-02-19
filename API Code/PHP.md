@@ -1,23 +1,27 @@
-## eoLinker-API Shop 
-### 基于PHP的IP地址查询API接口调用代码示例
-#### 一、接口名称：IP地址查询
-#### 二、接口描述：根据IP地址或者域名，查询该IP所属的区域
-#### 三、接口平台：eoLinker-API Shop （apishop.net）
+## IP地址查询 - PHP调用示例代码
 
-本代码示例是基于PHP的eoLinker-API Shop **查询IP信息** API服务请求的代码示例，使用前你需要：
+#### IP地址查询
+根据IP地址或者域名，查询该IP所属的区域
 
-①：通过https://www.apishop.net/#/api/detail/?productID=118 申请API服务
+#### 该产品拥有以下APIs：
+1. 查询IP信息
 
-**以下是完整代码示例：**
+**注意，该示例代码仅适用于 [www.apishop.net](www.apishop.net "www.apishop.net") 网站下API**
+**使用该产品前，您需要通过 [https://www.apishop.net/#/api/detail/?productID=118](https://www.apishop.net/#/api/detail/?productID=118 "https://www.apishop.net/#/api/detail/?productID=118") 申请API服务**
+
+---
+
+#### 1.查询IP信息
+
 ```
 <?php
 $method = "POST";
 $url = "https://api.apishop.net/common/ip/queryIPInfo";
 $headers = NULL;
-$params = array(
-  "apiKey"=>"参数1",
-  "ip"=>"参数2"
+$params = array(			
+		"ip"=>"" //ip地址		
 );
+
 $result = apishop_curl($method, $url, $headers, $params);
 If ($result) {
    $body = json_decode($result["body"], TRUE);
